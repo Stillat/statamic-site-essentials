@@ -1,0 +1,40 @@
+{
+    "name": "stillat/statamic-site-essentials",
+    "license": "GPL-3.0-only",
+    "autoload": {
+        "psr-4": {
+            "Stillat\\StatamicSiteEssentials\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" }
+    },
+    "require": {
+        "php": "^8.0",
+        "ext-dom": "*",
+        "statamic/cms": "^4",
+        "stillat/statamic-attribute-renderer": "^1"
+    },
+    "extra": {
+        "statamic": {
+            "name": "Site Essentials for Statamic",
+            "description": "A collection of features to rapidly build and deploy Statamic sites."
+        },
+        "laravel": {
+            "providers": [
+                "Stillat\\StatamicSiteEssentials\\ServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.24",
+        "orchestra/testbench": "^8.14",
+        "pestphp/pest-plugin-laravel": "^2.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "pixelfear/composer-dist-plugin": true
+        }
+    }
+}
