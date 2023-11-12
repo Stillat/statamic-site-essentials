@@ -12,6 +12,7 @@ class ServiceProvider extends AddonServiceProvider
     protected $commands = [
         Console\GenerateFavicons::class,
         Console\GenerateWebManifest::class,
+        Console\RemoveFields::class,
     ];
 
     public function register()
