@@ -5,7 +5,9 @@ namespace Stillat\StatamicSiteEssentials;
 use Statamic\Providers\AddonServiceProvider;
 use Stillat\StatamicAttributeRenderer\ValueResolver;
 use Stillat\StatamicSiteEssentials\Contracts\FaviconGenerator;
+use Stillat\StatamicSiteEssentials\Listeners\StatamicResponseCreated;
 use Stillat\StatamicSiteEssentials\Metadata\MetadataManager;
+use Stillat\StatamicSiteEssentials\View\ViewObserver;
 
 class ServiceProvider extends AddonServiceProvider
 {
@@ -13,6 +15,15 @@ class ServiceProvider extends AddonServiceProvider
         Console\GenerateFavicons::class,
         Console\GenerateWebManifest::class,
         Console\RemoveFields::class,
+    ];
+
+    protected $listen = [
+        \Statamic\Events\ResponseCreated::class => [
+            StatamicResponseCreated::class,
+        ],
+        \Illuminate\Foundation\Http\Events\RequestHandled::class => [
+            StatamicResponseCreated::class,
+        ],
     ];
 
     public function register()
@@ -27,6 +38,10 @@ class ServiceProvider extends AddonServiceProvider
             $valueResolver = app(ValueResolver::class);
 
             return new MetadataManager($valueResolver);
+        });
+
+        $this->app->singleton(ViewObserver::class, function () {
+            return new ViewObserver();
         });
 
         $this->app->bind(FaviconGenerator::class, config('site_essentials.favicons.driver', null));
@@ -47,6 +62,10 @@ class ServiceProvider extends AddonServiceProvider
 
         if (! file_exists($tmpPath)) {
             mkdir($tmpPath, 0755, true);
+        }
+
+        if (config('site_essentials.templating.observe_view', true)) {
+            ViewObserver::setupObserver();
         }
 
         // Do this here since Statamic boots tags/modifiers after config.

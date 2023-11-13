@@ -20,6 +20,7 @@ return [
         \Stillat\StatamicSiteEssentials\Tags\SeException::class,
         \Stillat\StatamicSiteEssentials\Tags\Entries\SeEntryLocales::class,
         \Stillat\StatamicSiteEssentials\Tags\TemplateManagement\SeCurrentView::class,
+        \Stillat\StatamicSiteEssentials\Tags\TemplateManagement\SeView::class,
     ],
 
     /*
@@ -39,4 +40,15 @@ return [
         \Stillat\StatamicSiteEssentials\Modifiers\Code\SeCodeMirrorToHighlightJs::class,
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Observe Views
+    |--------------------------------------------------------------------------
+    |
+    | When true, the Site Essentials view observer will be enabled. This
+    | will allow you to use the `{{ se_view }}` tag related features.
+    |
+    */
+
+    'observe_views' => true,
 ];
