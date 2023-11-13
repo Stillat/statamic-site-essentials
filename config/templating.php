@@ -21,6 +21,7 @@ return [
         \Stillat\StatamicSiteEssentials\Tags\Entries\SeEntryLocales::class,
         \Stillat\StatamicSiteEssentials\Tags\TemplateManagement\SeCurrentView::class,
         \Stillat\StatamicSiteEssentials\Tags\TemplateManagement\SeView::class,
+        \Stillat\StatamicSiteEssentials\Tags\TemplateManagement\SeDeferred::class,
     ],
 
     /*
