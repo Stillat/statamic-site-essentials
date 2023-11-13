@@ -10,7 +10,7 @@
         "psr-4": { "Tests\\": "tests/" }
     },
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "ext-dom": "*",
         "statamic/cms": "^4",
         "stillat/statamic-attribute-renderer": "^1"
