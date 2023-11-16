@@ -26,8 +26,10 @@ class GeneralBuilder extends AbstractMetaTagBuilder
 
     /**
      * Queues a <meta name="description" content="..."> tag.
+     *
+     * Variable: $meta_description
      */
-    public function description($description = ''): self
+    public function description($description = '$meta_description'): self
     {
         $this->getManager()->queue([
             'name' => 'description',
@@ -39,8 +41,10 @@ class GeneralBuilder extends AbstractMetaTagBuilder
 
     /**
      * Queues a <meta name="keywords" content="..."> tag.
+     *
+     * Variable: $meta_keywords
      */
-    public function keywords($keywords = ''): self
+    public function keywords($keywords = '$meta_keywords'): self
     {
         if (is_array($keywords)) {
             $keywords = implode(', ', $keywords);
@@ -56,8 +60,10 @@ class GeneralBuilder extends AbstractMetaTagBuilder
 
     /**
      * Queues a <meta name="author" content="..."> tag.
+     *
+     * Variable: $meta_author
      */
-    public function author($author = ''): self
+    public function author($author = '$meta_author'): self
     {
         $this->getManager()->queue([
             'name' => 'author',
@@ -107,8 +113,10 @@ class GeneralBuilder extends AbstractMetaTagBuilder
 
     /**
      * Queues a <link rel="canonical" href="..."> tag.
+     *
+     * Variable: $meta_canonical
      */
-    public function canonical($url = ''): self
+    public function canonical($url = '$meta_canonical'): self
     {
         $this->getManager()->queueLink([
             'rel' => 'canonical',
@@ -119,9 +127,11 @@ class GeneralBuilder extends AbstractMetaTagBuilder
     }
 
     /**
-     * Queues a <link rel="next" href="..."> tag.
+     * Queues a <link rel="first" href="..."> tag.
+     *
+     * Variable: $meta_link_first
      */
-    public function first($url = ''): self
+    public function first($url = '$meta_link_first'): self
     {
         $this->getManager()->queueLink([
             'rel' => 'first',
@@ -133,8 +143,10 @@ class GeneralBuilder extends AbstractMetaTagBuilder
 
     /**
      * Queues a <link rel="last" href="..."> tag.
+     *
+     * Variable: $meta_link_last
      */
-    public function last($url = ''): self
+    public function last($url = '$meta_link_last'): self
     {
         $this->getManager()->queueLink([
             'rel' => 'last',
@@ -146,8 +158,10 @@ class GeneralBuilder extends AbstractMetaTagBuilder
 
     /**
      * Queues a <link rel="prev" href="..."> tag.
+     *
+     * Variable: $meta_link_prev
      */
-    public function prev($url = ''): self
+    public function prev($url = '$meta_link_prev'): self
     {
         $this->getManager()->queueLink([
             'rel' => 'prev',
@@ -159,8 +173,10 @@ class GeneralBuilder extends AbstractMetaTagBuilder
 
     /**
      * Queues a <link rel="next" href="..."> tag.
+     *
+     * Variable: $meta_link_next
      */
-    public function next($url = ''): self
+    public function next($url = '$meta_link_next'): self
     {
         $this->getManager()->queueLink([
             'rel' => 'next',
