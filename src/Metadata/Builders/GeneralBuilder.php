@@ -10,6 +10,11 @@ use Stillat\StatamicSiteEssentials\Metadata\MetaBuilder;
 
 class GeneralBuilder extends AbstractMetaTagBuilder
 {
+    /**
+     * Queues a <meta charset="utf-8"> tag.
+     *
+     * Defaults to "utf-8".
+     */
     public function charset($charset = 'utf-8'): self
     {
         $this->getManager()->queue([
@@ -19,6 +24,9 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
+    /**
+     * Queues a <meta name="description" content="..."> tag.
+     */
     public function description($description = ''): self
     {
         $this->getManager()->queue([
@@ -29,6 +37,9 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
+    /**
+     * Queues a <meta name="keywords" content="..."> tag.
+     */
     public function keywords($keywords = ''): self
     {
         if (is_array($keywords)) {
@@ -43,6 +54,9 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
+    /**
+     * Queues a <meta name="author" content="..."> tag.
+     */
     public function author($author = ''): self
     {
         $this->getManager()->queue([
@@ -53,6 +67,9 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
+    /**
+     * Queues a <meta http-equiv="..." content="..."> tag.
+     */
     public function httpEquiv($httpEquiv, $content): self
     {
         $this->getManager()->queue([
@@ -63,11 +80,21 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
+    /**
+     * Queues a <meta http-equiv="X-UA-Compatible" content="..."> tag.
+     *
+     * Defaults to "IE=edge".
+     */
     public function xUaCompatible($content = 'IE=edge'): self
     {
         return $this->httpEquiv('X-UA-Compatible', $content);
     }
 
+    /**
+     * Queues a <title>...</title> tag.
+     *
+     * Variable: $title
+     */
     public function title($title = '$title'): self
     {
         $this->getManager()->queue([
@@ -78,6 +105,9 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
+    /**
+     * Queues a <link rel="canonical" href="..."> tag.
+     */
     public function canonical($url = ''): self
     {
         $this->getManager()->queueLink([
@@ -88,6 +118,9 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
+    /**
+     * Queues a <link rel="next" href="..."> tag.
+     */
     public function first($url = ''): self
     {
         $this->getManager()->queueLink([
@@ -98,6 +131,9 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
+    /**
+     * Queues a <link rel="last" href="..."> tag.
+     */
     public function last($url = ''): self
     {
         $this->getManager()->queueLink([
@@ -108,6 +144,37 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
+    /**
+     * Queues a <link rel="prev" href="..."> tag.
+     */
+    public function prev($url = ''): self
+    {
+        $this->getManager()->queueLink([
+            'rel' => 'prev',
+            'href' => $this->value($url),
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * Queues a <link rel="next" href="..."> tag.
+     */
+    public function next($url = ''): self
+    {
+        $this->getManager()->queueLink([
+            'rel' => 'next',
+            'href' => $this->value($url),
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * Queues a <link rel="self" href="..."> tag.
+     *
+     * Variable: $current_full_url
+     */
     public function self($url = '$current_full_url'): self
     {
         $this->getManager()->queueLink([
@@ -118,6 +185,15 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
+    /**
+     * Pagination helper to queue the following tags:
+     *
+     * <link rel="first" href="...">
+     * <link rel="last" href="...">
+     * <link rel="prev" href="...">
+     * <link rel="next" href="...">
+     * <link rel="self" href="...">
+     */
     public function pagination(array $paginate): self
     {
         $this->getManager()->general()
@@ -143,26 +219,11 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
-    public function prev($url = ''): self
-    {
-        $this->getManager()->queueLink([
-            'rel' => 'prev',
-            'href' => $this->value($url),
-        ]);
-
-        return $this;
-    }
-
-    public function next($url = ''): self
-    {
-        $this->getManager()->queueLink([
-            'rel' => 'next',
-            'href' => $this->value($url),
-        ]);
-
-        return $this;
-    }
-
+    /**
+     * Queues a <meta name="viewport" content="..."> tag.
+     *
+     * Defaults to "width=device-width, initial-scale=1".
+     */
     public function viewport($viewport = 'width=device-width, initial-scale=1'): self
     {
         $valueToUse = $viewport;
@@ -183,6 +244,12 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
+    /**
+     * Queues <link rel="alternate" hreflang="..." href="..."> tags.
+     *
+     * This method will use the current entry's
+     * locales to generate the alternates.
+     */
     public function localeAlternate(): self
     {
         $this->getManager()->queue(function ($context, MetaBuilder $builder) {
