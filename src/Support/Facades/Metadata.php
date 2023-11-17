@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Facade;
 use Stillat\StatamicSiteEssentials\Metadata\Builders\GeneralBuilder;
 use Stillat\StatamicSiteEssentials\Metadata\Builders\OpenGraphBuilder;
 use Stillat\StatamicSiteEssentials\Metadata\Builders\RobotsBuilder;
+use Stillat\StatamicSiteEssentials\Metadata\Builders\TwitterXBuilder;
 use Stillat\StatamicSiteEssentials\Metadata\MetadataManager;
 
 /**
@@ -27,6 +28,7 @@ use Stillat\StatamicSiteEssentials\Metadata\MetadataManager;
  * @method static OpenGraphBuilder openGraph()
  * @method static RobotsBuilder robots()
  * @method static GeneralBuilder general()
+ * @method static TwitterXBuilder twitterX()
  * @method
  */
 class Metadata extends Facade
