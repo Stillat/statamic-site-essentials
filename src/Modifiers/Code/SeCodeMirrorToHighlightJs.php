@@ -11,12 +11,9 @@ class SeCodeMirrorToHighlightJs extends Modifier
     protected array $languageMappings = [
         'htmlmixed' => 'html',
         'javascript' => 'js',
-        'python' => 'python',
         'clike' => 'cpp',
-        'php' => 'php',
         'shell' => 'bash',
         'sass' => 'scss',
-        'coffeescript' => 'coffeescript',
         'markdown' => 'md',
         'vb' => 'vbnet',
     ];
