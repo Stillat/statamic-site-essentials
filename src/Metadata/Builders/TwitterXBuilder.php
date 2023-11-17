@@ -104,30 +104,30 @@ class TwitterXBuilder extends AbstractMetaTagBuilder
         return $this->property('twitter:app:url:ipad', $appUrlIpad);
     }
 
-    public function appNameGoogleplay($appNameGoogleplay = null): self
+    public function appNameGooglePlay($appNameGooglePlay = null): self
     {
-        if ($appNameGoogleplay == null) {
-            $appNameGoogleplay = ConfigResolver::makeConfigResolver('twitter.app_name_googleplay');
+        if ($appNameGooglePlay == null) {
+            $appNameGooglePlay = ConfigResolver::makeConfigResolver('twitter.app_name_googleplay');
         }
 
-        return $this->property('twitter:app:name:googleplay', $appNameGoogleplay);
+        return $this->property('twitter:app:name:googleplay', $appNameGooglePlay);
     }
 
-    public function appIdGoogleplay($appIdGoogleplay = null): self
+    public function appIdGooglePlay($appIdGooglePlay = null): self
     {
-        if ($appIdGoogleplay == null) {
-            $appIdGoogleplay = ConfigResolver::makeConfigResolver('twitter.app_id_googleplay');
+        if ($appIdGooglePlay == null) {
+            $appIdGooglePlay = ConfigResolver::makeConfigResolver('twitter.app_id_googleplay');
         }
 
-        return $this->property('twitter:app:id:googleplay', $appIdGoogleplay);
+        return $this->property('twitter:app:id:googleplay', $appIdGooglePlay);
     }
 
-    public function appUrlGoogleplay($appUrlGoogleplay = null): self
+    public function appUrlGooglePlay($appUrlGooglePlay = null): self
     {
-        if ($appUrlGoogleplay == null) {
-            $appUrlGoogleplay = ConfigResolver::makeConfigResolver('twitter.app_url_googleplay');
+        if ($appUrlGooglePlay == null) {
+            $appUrlGooglePlay = ConfigResolver::makeConfigResolver('twitter.app_url_googleplay');
         }
 
-        return $this->property('twitter:app:url:googleplay', $appUrlGoogleplay);
+        return $this->property('twitter:app:url:googleplay', $appUrlGooglePlay);
     }
 }
