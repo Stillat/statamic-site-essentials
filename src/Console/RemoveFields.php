@@ -37,7 +37,7 @@ class RemoveFields extends Command
         }
 
         $fields = text(
-            label: 'Which fields would you like to remove? Seperate with commas.',
+            label: 'Which fields would you like to remove? Separate with commas.',
             placeholder: 'field1, field2, field3',
         );
 
