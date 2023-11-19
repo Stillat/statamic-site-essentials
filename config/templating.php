@@ -38,6 +38,7 @@ return [
         \Stillat\StatamicSiteEssentials\Modifiers\SeRadiusExcerpt::class,
         \Stillat\StatamicSiteEssentials\Modifiers\SeStrFinish::class,
         \Stillat\StatamicSiteEssentials\Modifiers\Array\SeEach::class,
+        \Stillat\StatamicSiteEssentials\Modifiers\Array\SeIsSetType::class,
         \Stillat\StatamicSiteEssentials\Modifiers\Code\SeCodeMirrorToHighlightJs::class,
     ],
 
