@@ -7,6 +7,7 @@ use Stillat\StatamicAttributeRenderer\ValueResolver;
 use Stillat\StatamicSiteEssentials\Contracts\FaviconGenerator;
 use Stillat\StatamicSiteEssentials\Listeners\StatamicResponseCreated;
 use Stillat\StatamicSiteEssentials\Metadata\MetadataManager;
+use Stillat\StatamicSiteEssentials\View\AssetQueues\QueueManager;
 use Stillat\StatamicSiteEssentials\View\DeferredExecution\Manager;
 use Stillat\StatamicSiteEssentials\View\ViewObserver;
 
@@ -47,6 +48,10 @@ class ServiceProvider extends AddonServiceProvider
 
         $this->app->singleton(Manager::class, function () {
             return new Manager();
+        });
+
+        $this->app->singleton(QueueManager::class, function () {
+            return new QueueManager();
         });
 
         $this->app->bind(FaviconGenerator::class, config('site_essentials.favicons.driver', null));
