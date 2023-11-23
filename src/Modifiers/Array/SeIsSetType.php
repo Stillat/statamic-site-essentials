@@ -35,6 +35,10 @@ class SeIsSetType extends Modifier
             return false;
         }
 
+        if (is_array($checkType)) {
+            return in_array($value['type'], $checkType);
+        }
+
         return $value['type'] === $checkType;
     }
 }
