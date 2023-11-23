@@ -2,7 +2,6 @@
 
 namespace Stillat\StatamicSiteEssentials\Tags\TemplateManagement;
 
-use Statamic\Facades\Antlers;
 use Statamic\Tags\Tags;
 use Statamic\View\State\ResetsState;
 
