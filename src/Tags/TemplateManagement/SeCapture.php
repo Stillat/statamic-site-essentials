@@ -2,6 +2,7 @@
 
 namespace Stillat\StatamicSiteEssentials\Tags\TemplateManagement;
 
+use Statamic\Facades\Antlers;
 use Statamic\Tags\Tags;
 use Statamic\View\State\ResetsState;
 
@@ -42,6 +43,12 @@ class SeCapture extends Tags implements ResetsState
         }
 
         self::$capturedContent[$cacheKey] = $this->parse();
+
+        $output = $this->params->get('output', false);
+
+        if ($output) {
+            return self::$capturedContent[$cacheKey];
+        }
 
         return '';
     }
