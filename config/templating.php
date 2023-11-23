@@ -35,7 +35,6 @@ return [
     */
 
     'modifiers' => [
-        \Stillat\StatamicSiteEssentials\Modifiers\SeGetReadTime::class,
         \Stillat\StatamicSiteEssentials\Modifiers\SeRadiusExcerpt::class,
         \Stillat\StatamicSiteEssentials\Modifiers\SeStrFinish::class,
         \Stillat\StatamicSiteEssentials\Modifiers\Array\SeEach::class,
