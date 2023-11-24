@@ -29,6 +29,9 @@ use Stillat\StatamicSiteEssentials\Metadata\MetadataManager;
  * @method static RobotsBuilder robots()
  * @method static GeneralBuilder general()
  * @method static TwitterXBuilder twitterX()
+ * @method static MetadataManager appendContent(string $content)
+ * @method static string getAppendedContent()
+ * @method static MetadataManager clearAppendedContent()
  * @method
  */
 class Metadata extends Facade

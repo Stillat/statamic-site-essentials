@@ -44,6 +44,8 @@ class MetadataManager
 
     protected array $thirdPartyTemplates = [];
 
+    protected array $appendedContent = [];
+
     public function __construct(ValueResolver $valueResolver)
     {
         $this->deferredBuilder = new MetaBuilder($this);
@@ -83,6 +85,25 @@ EOT
         if (array_key_exists($packageName, $this->thirdPartyTemplates)) {
             $this->thirdPartyCompatibility[$packageName] = true;
         }
+
+        return $this;
+    }
+
+    public function appendContent(string $content): self
+    {
+        $this->appendedContent[] = $content;
+
+        return $this;
+    }
+
+    public function getAppendedContent(): string
+    {
+        return implode("\n", $this->appendedContent);
+    }
+
+    public function clearAppendedContent(): self
+    {
+        $this->appendedContent = [];
 
         return $this;
     }

@@ -3,12 +3,13 @@
 namespace Stillat\StatamicSiteEssentials\Tags\Metadata;
 
 use Statamic\Tags\Tags;
+use Statamic\View\State\ResetsState;
 use Stillat\StatamicAttributeRenderer\Concerns\CreatesMetaTags;
 use Stillat\StatamicSiteEssentials\Metadata\MetaBuilder;
 use Stillat\StatamicSiteEssentials\Metadata\MetadataManager;
 use Stillat\StatamicSiteEssentials\Support\Facades\Metadata;
 
-class SeMeta extends Tags
+class SeMeta extends Tags implements ResetsState
 {
     use CreatesMetaTags;
 
@@ -27,8 +28,10 @@ class SeMeta extends Tags
         if ($this->isPair) {
             $additionalMeta = $this->parse();
         } else {
-            $additionalMeta .= Metadata::getThirdPartyTemplates();
+            $additionalMeta .= $this->metadataManager->getThirdPartyTemplates();
         }
+
+        $additionalMeta .= $this->metadataManager->getAppendedContent();
 
         return $this->metadataManager->toHtml($contextValues, $additionalMeta);
     }
@@ -44,5 +47,19 @@ class SeMeta extends Tags
         Metadata::ephemeral(function (MetaBuilder $meta) use ($paginate) {
             $meta->general()->pagination($paginate);
         });
+    }
+
+    public function append(): void
+    {
+        if (! $this->isPair) {
+            return;
+        }
+
+        $this->metadataManager->appendContent((string) $this->parse());
+    }
+
+    public static function resetStaticState()
+    {
+        Metadata::clearAppendedContent();
     }
 }
