@@ -91,8 +91,6 @@ class Generator
             $createdPaths[] = $targetFileName;
         }
 
-        dd($this->tmpDirectory);
-
         file_put_contents($faviconCachePath, json_encode($createdPaths, JSON_PRETTY_PRINT));
     }
 }
