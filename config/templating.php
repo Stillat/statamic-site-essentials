@@ -18,7 +18,6 @@ return [
         \Stillat\StatamicSiteEssentials\Tags\Metadata\SeWebManifest::class,
         \Stillat\StatamicSiteEssentials\Tags\Metadata\SeGetFavicons::class,
         \Stillat\StatamicSiteEssentials\Tags\SeException::class,
-        \Stillat\StatamicSiteEssentials\Tags\Entries\SeEntryLocales::class,
         \Stillat\StatamicSiteEssentials\Tags\TemplateManagement\SeCurrentView::class,
         \Stillat\StatamicSiteEssentials\Tags\TemplateManagement\SeView::class,
         \Stillat\StatamicSiteEssentials\Tags\TemplateManagement\SeDeferred::class,
