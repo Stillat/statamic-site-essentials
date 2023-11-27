@@ -1,6 +1,30 @@
 <?php
 
 return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Guard Index Follow
+    |--------------------------------------------------------------------------
+    |
+    | When set to true <meta name="robots" content="noindex, nofollow">
+    | will be added to the <head> of the page when the current user
+    | for environments that are not the production environment.
+    |
+    */
+
+    'guard_index_follow' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | X/Twitter Card Information
+    |--------------------------------------------------------------------------
+    |
+    | Information that will be used to generate the <meta> tags for
+    | Twitter cards. If a value is null, the tag will not be used.
+    |
+    */
+
     'twitter' => [
         'site' => null,
         'site_id' => null,

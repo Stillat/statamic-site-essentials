@@ -33,6 +33,10 @@ class SeMeta extends Tags implements ResetsState
 
         $additionalMeta .= $this->metadataManager->getAppendedContent();
 
+        if (config('site_essentials.metadata.guard_index_follow', true) && ! app()->isProduction()) {
+            $additionalMeta .= '<meta name="robots" content="noindex, nofollow">';
+        }
+
         return $this->metadataManager->toHtml($contextValues, $additionalMeta);
     }
 
