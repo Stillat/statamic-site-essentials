@@ -2,9 +2,7 @@
 
 namespace Stillat\StatamicSiteEssentials\Listeners;
 
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Resources\Json\ResourceResponse;
+use Illuminate\Http\Response;
 use Statamic\Statamic;
 use Stillat\StatamicSiteEssentials\View\DeferredExecution\Manager;
 use Stillat\StatamicSiteEssentials\View\ViewObserver;
@@ -23,15 +21,8 @@ class StatamicResponseCreated
         if (! $response) {
             return;
         }
-        if ($response instanceof RedirectResponse) {
-            return;
-        }
 
-        if ($response instanceof JsonResponse) {
-            return;
-        }
-
-        if ($response instanceof ResourceResponse) {
+        if (!$response instanceof Response) {
             return;
         }
 
