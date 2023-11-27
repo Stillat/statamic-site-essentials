@@ -22,7 +22,7 @@ class StatamicResponseCreated
             return;
         }
 
-        if (!$response instanceof Response) {
+        if (! $response instanceof Response) {
             return;
         }
 
