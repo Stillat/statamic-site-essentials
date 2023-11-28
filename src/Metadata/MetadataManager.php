@@ -133,6 +133,8 @@ EOT
             ->xUaCompatible()
             ->viewport()
             ->title()
+            ->description()
+            ->keywords()
             ->localeAlternate();
 
         $this->twitterX()->all();
