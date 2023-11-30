@@ -9,9 +9,19 @@ class TwitterXBuilder extends AbstractMetaTagBuilder
         return $this
             ->site()->siteId()
             ->creator()->creatorId()
+            ->card()
             ->appNameIpad()->appIdIpad()->appUrlIpad()
             ->appNameIphone()->appIdIphone()->appUrlIphone()
             ->appNameGooglePlay()->appIdGooglePlay()->appUrlGooglePlay();
+    }
+
+    public function card($card = null): self
+    {
+        if ($card == null) {
+            $card = ConfigResolver::makeConfigResolver('twitter.card');
+        }
+
+        return $this->property('twitter:card', $card);
     }
 
     public function site($site = null): self

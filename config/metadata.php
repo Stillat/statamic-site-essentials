@@ -31,6 +31,8 @@ return [
         'creator' => null,
         'creator_id' => null,
 
+        'card' => null,
+
         'app_name_iphone' => null,
         'app_id_iphone' => null,
         'app_url_iphone' => null,
