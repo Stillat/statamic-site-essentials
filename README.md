@@ -1,4 +1,4 @@
-# Site Essentials for Statamic
+![](.art/banner.png)
 
 Hey there!
 
