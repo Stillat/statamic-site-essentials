@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'path' => public_path('site.webmanifest'),
+    'path' => public_path('manifest.json'),
 
     /*
     |--------------------------------------------------------------------------
