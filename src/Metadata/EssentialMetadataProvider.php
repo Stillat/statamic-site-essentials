@@ -22,6 +22,12 @@ class EssentialMetadataProvider
 
         if ($manifest = WebManifestGenerator::getManifestLink($context)) {
             $metaTags[] = $manifest;
+
+            $themeColor = config('site_essentials.webmanifest.manifest.theme_color', null);
+
+            if ($themeColor) {
+                $metaTags[] = '<meta name="theme-color" content="'.$themeColor.'">';
+            }
         }
 
         return $metaTags;
