@@ -260,6 +260,15 @@ class GeneralBuilder extends AbstractMetaTagBuilder
         return $this;
     }
 
+    private function formatLocale(string $locale): string
+    {
+        if (mb_strlen($locale) > 2) {
+            $locale = mb_substr($locale, 0, 2);
+        }
+
+        return $locale;
+    }
+
     /**
      * Queues <link rel="alternate" hreflang="..." href="..."> tags.
      *
@@ -283,7 +292,7 @@ class GeneralBuilder extends AbstractMetaTagBuilder
             foreach ($variants as $locale => $variant) {
                 $builder->ephemeralLink([
                     'rel' => 'alternate',
-                    'hreflang' => $locale,
+                    'hreflang' => $this->formatLocale($locale),
                     'href' => $variant->absoluteUrl(),
                 ]);
             }
