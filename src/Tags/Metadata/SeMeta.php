@@ -40,6 +40,19 @@ class SeMeta extends Tags implements ResetsState
         return $this->metadataManager->toHtml($contextValues, $additionalMeta);
     }
 
+    public function canonical(): void
+    {
+        $onlyOnQuery = $this->params->get('only_on_query', false);
+
+        if ($onlyOnQuery && count(request()->input()) == 0) {
+            return;
+        }
+
+        Metadata::ephemeral(function (MetaBuilder $meta) {
+            $meta->general()->canonical($this->params->get('url', request()->url()));
+        });
+    }
+
     public function paginate(): void
     {
         $paginate = $this->context->get('paginate', null);
