@@ -12,8 +12,8 @@
     "require": {
         "php": "^8.1",
         "ext-dom": "*",
-        "statamic/cms": "^4",
-        "stillat/statamic-attribute-renderer": "^1"
+        "statamic/cms": "^4 || ^5",
+        "stillat/statamic-attribute-renderer": "^1.1"
     },
     "extra": {
         "statamic": {
@@ -28,7 +28,7 @@
     },
     "require-dev": {
         "pestphp/pest": "^2.24",
-        "orchestra/testbench": "^8.14",
+        "orchestra/testbench": "^8.14 || ^9",
         "pestphp/pest-plugin-laravel": "^2.2",
         "laravel/pint": "^1.13"
     },

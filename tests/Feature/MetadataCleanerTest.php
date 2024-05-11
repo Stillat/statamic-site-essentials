@@ -1,5 +1,7 @@
 <?php
 
+use Statamic\View\Antlers\Language\Utilities\StringUtilities;
+
 function cleanMetadata(string $input): string
 {
     $cleaner = new \Stillat\StatamicSiteEssentials\Metadata\MetadataCleaner();
@@ -30,7 +32,7 @@ test('multiple tags are preserved', function () {
 <meta property="og:locale:alternate" content="fr_FR">
 EOT;
 
-    expect(cleanMetadata($input))->toBe($input);
+    expect(StringUtilities::normalizeLineEndings(cleanMetadata($input)))->toBe(StringUtilities::normalizeLineEndings($input));
 });
 
 test('casing is ignored', function () {
@@ -44,7 +46,7 @@ EOT;
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 EOT;
 
-    expect(cleanMetadata($input))->toBe($output);
+    expect(StringUtilities::normalizeLineEndings(cleanMetadata($input)))->toBe(StringUtilities::normalizeLineEndings($output));
 });
 
 test('extra tags are removed', function () {
@@ -61,7 +63,7 @@ test('extra tags are removed', function () {
 <meta property="og:locale:alternate" content="fr_FR">
 EOT;
 
-    expect(cleanMetadata($input.$input.$input))->toBe($input);
+    expect(StringUtilities::normalizeLineEndings(cleanMetadata($input.$input.$input)))->toBe(StringUtilities::normalizeLineEndings($input));
 });
 
 test('test multiple meta tags', function () {
@@ -88,8 +90,8 @@ test('test multiple meta tags', function () {
 <link rel="manifest" crossorigin="anonymous" href="/site.webmanifest">
 EOT;
 
-    expect(cleanMetadata($input))->toBe($input);
-    expect(cleanMetadata($input.$input))->toBe($input);
+    expect(StringUtilities::normalizeLineEndings(cleanMetadata($input)))->toBe(StringUtilities::normalizeLineEndings($input));
+    expect(StringUtilities::normalizeLineEndings(cleanMetadata($input.$input)))->toBe(StringUtilities::normalizeLineEndings($input));
 });
 
 test('only one robots tag is preserved', function () {
@@ -114,7 +116,7 @@ EOT;
 <meta http-equiv="refresh" content="two">
 EOT;
 
-    expect(cleanMetadata($input))->toBe($expected);
+    expect(StringUtilities::normalizeLineEndings(cleanMetadata($input)))->toBe(StringUtilities::normalizeLineEndings($expected));
 });
 
 test('charset meta tag should appear only once and the last one should be preserved', function () {
