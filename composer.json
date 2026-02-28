@@ -12,7 +12,7 @@
     "require": {
         "php": "^8.1",
         "ext-dom": "*",
-        "statamic/cms": "^4 || ^5",
+        "statamic/cms": "^4 || ^5 || ^6",
         "stillat/statamic-attribute-renderer": "^1.1"
     },
     "extra": {
