@@ -17,6 +17,6 @@ class DeferredRegion
      */
     public function render(): string
     {
-        return (string) Antlers::parse($this->content, $this->context);
+        return (string) Antlers::parse($this->content, $this->context, true);
     }
 }

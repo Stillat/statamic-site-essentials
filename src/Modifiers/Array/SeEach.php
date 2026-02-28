@@ -41,6 +41,6 @@ class SeEach extends Modifier
 
         $template = '{{ __each_data }}'.$template.' {{ /__each_data }}';
 
-        return Antlers::parse($template, $data);
+        return Antlers::parse($template, $data, true);
     }
 }

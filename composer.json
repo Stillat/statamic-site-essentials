@@ -12,8 +12,8 @@
     "require": {
         "php": "^8.1",
         "ext-dom": "*",
-        "statamic/cms": "^4 || ^5 || ^6",
-        "stillat/statamic-attribute-renderer": "^1.1"
+        "statamic/cms": "^5.73 || ^6.4",
+        "stillat/statamic-attribute-renderer": "^1.2"
     },
     "extra": {
         "statamic": {
